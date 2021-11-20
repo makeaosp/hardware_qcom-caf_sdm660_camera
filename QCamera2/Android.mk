@@ -7,7 +7,7 @@ include $(CLEAR_VARS)
 SDCLANG_COMMON_DEFS := $(LOCAL_PATH)/sdllvm-common-defs.mk
 SDCLANG_FLAG_DEFS := $(LOCAL_PATH)/sdllvm-flag-defs.mk
 
-LOCAL_COPY_HEADERS_TO := qcom/camera
+LOCAL_COPY_HEADERS_TO := qcom-caf/sdm660/camera
 LOCAL_COPY_HEADERS := QCameraFormat.h
 
 ifneq ($(call is-platform-sdk-version-at-least,28),true)
@@ -126,8 +126,8 @@ LOCAL_C_INCLUDES := \
         $(LOCAL_PATH)/stack/mm-camera-interface/inc \
         $(LOCAL_PATH)/util \
         $(LOCAL_PATH)/HAL3 \
-        hardware/qcom/media/libstagefrighthw \
-        hardware/qcom/media/mm-core/inc \
+        hardware/qcom-caf/sdm660/media/libstagefrighthw \
+        hardware/qcom-caf/sdm660/media/mm-core/inc \
         $(TARGET_OUT_HEADERS)/mm-camera-lib/cp/prebuilt
 
 ifneq (,$(filter $(TRINKET),$(TARGET_BOARD_PLATFORM)))
@@ -153,7 +153,7 @@ LOCAL_HEADER_LIBRARIES += libhardware_headers
 
 #HAL 1.0 Include paths
 LOCAL_C_INCLUDES += \
-        hardware/qcom/camera/QCamera2/HAL
+        hardware/qcom-caf/sdm660/camera/QCamera2/HAL
 
 ifeq ($(TARGET_COMPILE_WITH_MSM_KERNEL),true)
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
@@ -179,9 +179,9 @@ LOCAL_CFLAGS += -DUSE_CAMERA_METABUFFER_UTILS
 
 #LOCAL_STATIC_LIBRARIES := libqcamera2_util
 LOCAL_C_INCLUDES += \
-        $(TARGET_OUT_HEADERS)/qcom/display
+        $(TARGET_OUT_HEADERS)/qcom-caf/sdm660/display
 LOCAL_C_INCLUDES += \
-        hardware/qcom/display/libqservice
+        hardware/qcom-caf/sdm660/display/libqservice
 LOCAL_SHARED_LIBRARIES := liblog libhardware libutils libcutils libdl libsync
 LOCAL_SHARED_LIBRARIES += libmmcamera_interface libmmjpeg_interface libui libcamera_metadata
 LOCAL_SHARED_LIBRARIES += libqdMetaData libqservice libbinder
